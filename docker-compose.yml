@@ -1,0 +1,17 @@
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: weekplan-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: weekplan
+      POSTGRES_USER: weekplan
+      POSTGRES_PASSWORD: weekplan_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
